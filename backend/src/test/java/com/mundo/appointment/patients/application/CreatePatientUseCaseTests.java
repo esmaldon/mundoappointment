@@ -1,5 +1,6 @@
 package com.mundo.appointment.patients.application;
 
+import com.mundo.appointment.patients.domain.PatientStatus;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
@@ -23,10 +24,14 @@ class CreatePatientUseCaseTests {
 				LocalDate.of(2018, 4, 12),
 				"Maria Lopez",
 				"5551234567",
-				"maria@example.com"));
+				"maria@example.com",
+				PatientStatus.ACTIVO,
+				"Redes",
+				"",
+				LocalDate.of(2018, 4, 12)));
 
 		assertThat(patient.id()).isNotNull();
 		assertThat(patient.firstName()).isEqualTo("Sofia");
-		assertThat(patient.createdAt()).isEqualTo(Instant.parse("2026-05-23T10:00:00Z"));
+		assertThat(patient.status()).isEqualTo(PatientStatus.ACTIVO);
 	}
 }

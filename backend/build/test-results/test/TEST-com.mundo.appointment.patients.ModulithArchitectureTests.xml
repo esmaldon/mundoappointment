@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mundo.appointment.patients.ModulithArchitectureTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-23T19:16:21.534Z" hostname="Emmanuels-MacBook-Air.local" time="0.837">
-  <properties/>
-  <testcase name="verifiesModularStructure()" classname="com.mundo.appointment.patients.ModulithArchitectureTests" time="0.831"/>
-  <system-out><![CDATA[13:16:21.693 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 25.0.1
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,6 +1,7 @@
 package com.mundo.appointment.patients.application;
 
 import com.mundo.appointment.patients.domain.Patient;
+import com.mundo.appointment.patients.domain.PatientStatus;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -14,6 +15,10 @@ public record PatientResponse(
 		String guardianName,
 		String phoneNumber,
 		String email,
+		PatientStatus status,
+		String referredBy,
+		String dischargeReason,
+		LocalDate admissionDate,
 		Instant createdAt) {
 
 	public static PatientResponse from(Patient patient) {
@@ -25,6 +30,10 @@ public record PatientResponse(
 				patient.guardianName(),
 				patient.phoneNumber(),
 				patient.email(),
+				patient.status(),
+				patient.referredBy(),
+				patient.dischargeReason(),
+				patient.admissionDate(),
 				patient.createdAt());
 	}
 }

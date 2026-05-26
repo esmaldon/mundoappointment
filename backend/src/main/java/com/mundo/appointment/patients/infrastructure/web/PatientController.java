@@ -16,7 +16,7 @@ import java.net.URI;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/patients")
+@RequestMapping("/api/v1/patients")
 class PatientController {
 
 	private final CreatePatientUseCase createPatient;
@@ -30,7 +30,7 @@ class PatientController {
 	@PostMapping
 	ResponseEntity<PatientResponse> create(@Valid @RequestBody CreatePatientRequest request) {
 		PatientResponse patient = createPatient.create(request.toCommand());
-		return ResponseEntity.created(URI.create("/api/patients/" + patient.id())).body(patient);
+		return ResponseEntity.created(URI.create("/api/v1/patients/" + patient.id())).body(patient);
 	}
 
 	@GetMapping("/{id}")

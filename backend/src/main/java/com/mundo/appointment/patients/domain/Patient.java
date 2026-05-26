@@ -12,7 +12,12 @@ public record Patient(
 		String guardianName,
 		String phoneNumber,
 		String email,
-		Instant createdAt) {
+		PatientStatus status,
+		String referredBy,
+		String dischargeReason,
+		LocalDate admissionDate,
+		Instant createdAt
+		) {
 
 	public Patient {
 		requireText(firstName, "First name is required");
@@ -24,6 +29,15 @@ public record Patient(
 		}
 		if (birthDate == null) {
 			throw new IllegalArgumentException("Birth date is required");
+		}
+		if (status == null) {
+			throw new IllegalArgumentException("Patient status is required");
+		}
+		if (status == PatientStatus.BAJA && (dischargeReason == null || dischargeReason.isBlank())) {
+			throw new IllegalArgumentException("Discharge reason is required when patient status is BAJA");
+		}
+		if (admissionDate == null) {
+			throw new IllegalArgumentException("Admission date is required");
 		}
 		if (createdAt == null) {
 			throw new IllegalArgumentException("Created date is required");
@@ -37,6 +51,10 @@ public record Patient(
 			String guardianName,
 			String phoneNumber,
 			String email,
+			PatientStatus status,
+			String referredBy,
+			String dischargeReason,
+			LocalDate admissionDate,
 			Clock clock) {
 
 		return new Patient(
@@ -47,6 +65,10 @@ public record Patient(
 				guardianName,
 				phoneNumber,
 				email,
+				status,
+				referredBy,
+				dischargeReason,
+				admissionDate,
 				Instant.now(clock));
 	}
 

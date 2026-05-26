@@ -25,6 +25,10 @@ public class CreatePatientUseCase {
 				command.guardianName(),
 				command.phoneNumber(),
 				command.email(),
+				command.status(),
+				command.referredBy(),
+				command.dischargeReason(),
+				command.admissionDate(),
 				clock);
 
 		return PatientResponse.from(patients.save(patient));

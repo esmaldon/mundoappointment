@@ -41,7 +41,7 @@
 <tr>
 <td>
 <div class="infoBox">
-<div class="counter">3</div>
+<div class="counter">1</div>
 <p>tests</p>
 </div>
 </td>
@@ -53,13 +53,13 @@
 </td>
 <td>
 <div class="infoBox">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>skipped</p>
 </div>
 </td>
 <td>
 <div class="infoBox duration">
-<div class="counter">1.567s</div>
+<div class="counter">53.426s</div>
 <p>duration</p>
 </div>
 </td>
@@ -68,7 +68,7 @@
 </div>
 </td>
 <td>
-<div class="infoBox skipped successRate">
+<div class="infoBox success successRate">
 <div class="percent">100%</div>
 <p>successful</p>
 </div>
@@ -89,36 +89,14 @@
 </tr>
 </thead>
 <tr>
-<td class="skipped">
-<a href="EXjNUZ3z21I/index.html">AppApplicationTests</a>
-</td>
-<td class="path">com.mundo.appointment.AppApplicationTests</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-<td>0.002s</td>
-<td class="skipped">100%</td>
-</tr>
-<tr>
 <td class="success">
-<a href="Z54-EKtSJuk/index.html">CreatePatientUseCaseTests</a>
+<a href="OeMxX6bmgMg/index.html">JdbcPatientRepositoryIntegrationTests</a>
 </td>
-<td class="path">com.mundo.appointment.patients.application.CreatePatientUseCaseTests</td>
+<td class="path">com.mundo.appointment.patients.infrastructure.persistence.JdbcPatientRepositoryIntegrationTests</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0.029s</td>
-<td class="success">100%</td>
-</tr>
-<tr>
-<td class="success">
-<a href="rvWQeQBEhYM/index.html">ModulithArchitectureTests</a>
-</td>
-<td class="path">com.mundo.appointment.patients.ModulithArchitectureTests</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0.837s</td>
+<td>41.086s</td>
 <td class="success">100%</td>
 </tr>
 </table>
@@ -127,13 +105,24 @@
 <div class="tab">
 <h2>standard output</h2>
 <span class="code">
-<pre id="root-0-test-stdout-Gradle Test Run :test">13:16:21.384 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
-13:16:21.522 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
-13:16:21.525 [Test worker] INFO org.testcontainers.dockerclient.DockerMachineClientProviderStrategy -- docker-machine executable was not found on PATH ([/Library/Frameworks/Python.framework/Versions/3.11/bin, /opt/homebrew/bin, /opt/homebrew/sbin, /usr/local/bin, /System/Cryptexes/App/usr/bin, /usr/bin, /bin, /usr/sbin, /sbin, /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin, /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin, /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin, /Users/esalcidom/.codex/tmp/arg0/codex-arg03DfLkn, /Users/esalcidom/.local/bin, /Users/esalcidom/.sdkman/candidates/springboot/current/bin, /Users/esalcidom/.sdkman/candidates/java/current/bin, /Users/esalcidom/.sdkman/candidates/gradle/current/bin, /Users/esalcidom/OpenJDK/jdk-20.0.1.jdk/Contents/Home/bin, /Library/Frameworks/Python.framework/Versions/3.11/bin, /Users/esalcidom/Library/Application Support/JetBrains/Toolbox/scripts, /Applications/Codex.app/Contents/Resources, /Users/esalcidom/Library/Application Support/JetBrains/Toolbox/scripts])
-13:16:21.526 [Test worker] ERROR org.testcontainers.dockerclient.DockerClientProviderStrategy -- Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
-	UnixSocketClientProviderStrategy: failed with exception InvalidConfigurationException (Could not find unix domain socket). Root cause NoSuchFileException (/var/run/docker.sock)
-	DockerDesktopClientProviderStrategy: failed with exception NullPointerException (Cannot invoke &quot;java.nio.file.Path.toString()&quot; because the return value of &quot;org.testcontainers.dockerclient.DockerDesktopClientProviderStrategy.getSocketPath()&quot; is null)As no valid configuration was found, execution cannot continue.
-See https://java.testcontainers.org/on_failure.html for more details.
+<pre id="root-0-test-stdout-Gradle Test Run :test">18:34:48.345 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+18:34:48.539 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+18:34:57.151 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+18:34:57.155 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+18:34:57.184 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 24.0.5
+  API Version: 1.43
+  Operating System: Docker Desktop
+  Total Memory: 3933 MB
+18:34:57.203 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+18:34:57.209 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+18:34:57.243 [Test worker] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+18:34:57.682 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for https://index.docker.io/v1/
+18:34:57.872 [Test worker] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: 0e40d2e3c2276e6fdb205bd9d3e97c4a554595a96d25990cecfec0d8b4522cfa
+18:34:58.515 [Test worker] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT1.272182S
+18:34:58.548 [Test worker] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+18:34:58.549 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+18:34:58.550 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
 </pre>
 <button class="clipboard-copy-btn" aria-label="Copy to clipboard" data-copy-element-id="root-0-test-stdout-Gradle Test Run :test">Copy</button>
 </span>
@@ -148,7 +137,7 @@ See https://java.testcontainers.org/on_failure.html for more details.
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 9.4.1</a> at May 23, 2026, 1:16:22 PM</p>
+<a href="https://www.gradle.org">Gradle 9.4.1</a> at May 25, 2026, 6:35:40 PM</p>
 </div>
 </div>
 </body>

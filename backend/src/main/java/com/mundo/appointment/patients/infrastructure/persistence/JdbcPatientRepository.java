@@ -3,11 +3,13 @@ package com.mundo.appointment.patients.infrastructure.persistence;
 import com.mundo.appointment.patients.domain.Patient;
 import com.mundo.appointment.patients.domain.PatientId;
 import com.mundo.appointment.patients.domain.PatientRepository;
+import com.mundo.appointment.patients.domain.PatientStatus;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Optional;
 
 @Repository
@@ -30,6 +32,10 @@ class JdbcPatientRepository implements PatientRepository {
 					guardian_name,
 					phone_number,
 					email,
+					status,
+					referred_by,
+					discharge_reason,
+					admission_date,
 					created_at
 				)
 				values (
@@ -40,6 +46,10 @@ class JdbcPatientRepository implements PatientRepository {
 					:guardianName,
 					:phoneNumber,
 					:email,
+					:status,
+					:referredBy,
+					:dischargeReason,
+					:admissionDate,
 					:createdAt
 				)
 				""")
@@ -50,7 +60,11 @@ class JdbcPatientRepository implements PatientRepository {
 				.param("guardianName", patient.guardianName())
 				.param("phoneNumber", patient.phoneNumber())
 				.param("email", patient.email())
-				.param("createdAt", patient.createdAt())
+				.param("status", patient.status().name())
+				.param("referredBy", patient.referredBy())
+				.param("dischargeReason", patient.dischargeReason())
+				.param("admissionDate", patient.admissionDate())
+				.param("createdAt", Timestamp.from(patient.createdAt()))
 				.update();
 
 		return patient;
@@ -59,7 +73,7 @@ class JdbcPatientRepository implements PatientRepository {
 	@Override
 	public Optional<Patient> findById(PatientId id) {
 		return jdbcClient.sql("""
-				select id, first_name, last_name, birth_date, guardian_name, phone_number, email, created_at
+				select id, first_name, last_name, birth_date, guardian_name, phone_number, email, status, referred_by, discharge_reason, admission_date, created_at
 				from patients
 				where id = :id
 				""")
@@ -77,6 +91,10 @@ class JdbcPatientRepository implements PatientRepository {
 				rs.getString("guardian_name"),
 				rs.getString("phone_number"),
 				rs.getString("email"),
+				PatientStatus.valueOf(rs.getString("status")),
+				rs.getString("referred_by"),
+				rs.getString("discharge_reason"),
+				rs.getObject("admission_date", java.time.LocalDate.class),
 				rs.getTimestamp("created_at").toInstant());
 	}
 }
